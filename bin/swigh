@@ -55,7 +55,7 @@ create_makefile(file.sub(".h", ""))
 system 'make'
 
 # raise error if C compiler raised error and don't created file.so
-raise RuntimeError, "Something was wrong with your C/C++ File =(\nPlease fix it first" if !File.exist?(file.sub(".h", ".so"))
+raise RuntimeError, "Something was wrong with your C/C++ File =(\nPlease fix it first" if !File.exist?(CURRENT_DIR+"/"+file.sub(".h", ".so"))
 
 # delete no usefull files 
 [
@@ -66,7 +66,7 @@ raise RuntimeError, "Something was wrong with your C/C++ File =(\nPlease fix it 
 ].each { |file__|
     if File.exist? file__
         $stdout.puts "deleting #{file__}..."
-        File.delete(file__);end 
+        File.delete(CURRENT_DIR+"/"+file__);end 
 }
 
 # alert alright
