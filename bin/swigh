@@ -4,7 +4,11 @@ require 'swigh'
 require 'mkmf'
 
 #get argument from bat comand line
-file = ARGV[0] if !ARGV.empty?
+if !ARGV.empty?
+    file = ARGV[0]
+else
+    puts "Usage:\n      swigh example.h\n"
+    exit;end
 
 #get current directory
 CURRENT_DIR = Dir.pwd
