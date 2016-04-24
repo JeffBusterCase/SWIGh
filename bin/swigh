@@ -3,6 +3,30 @@
 require 'swigh'
 require 'mkmf'
 
+
+
+#verify if swig is installed
+if system "swig -version" == nil
+        print "\nSWIG wasn't installed yet. SWIGh needs it.install SWIG?[Y/n]"
+        install = gets.chomp.downcase
+        if install == ("y" || "yes")
+           puts "\ninstalling swig...\n"
+           system "sudo apt-get install swig"
+           puts "\n\n    back to the program:\n"
+        else
+            print "\n   if you will not install swig, this gem is useless.\n    uninstall this gem(SWIGh)[Y/n]?"
+            install = gets.chomp.downcase
+            if install == ("y" || "yes")
+                system "gem uninstall swigh"
+                puts "\n\n    thank you =)."
+                exit
+            else
+               puts "\n:Nothing to do so =("
+               exit
+            end
+        end
+end
+
 #get argument from bat comand line
 if !ARGV.empty?
     file = ARGV[0]

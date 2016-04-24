@@ -1,3 +1,3 @@
 module SWIGh
-  VERSION = "0.0.211"
+  VERSION = "0.0.23"
 end
