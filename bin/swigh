@@ -48,14 +48,13 @@ File.open((CURRENT_DIR+"/"+(file.sub(".h", ".i") ) ), "w"){|f|
 system "swig -ruby #{file.sub(".h", ".i")}"
 
 # create MakeFile
-Dir.chdir(CURRENT_DIR)
 create_makefile(file.sub(".h", ""))
-
+sleep 0.3
 # make
-system 'make'
-
+system "make"
+sleep 0.3
 # raise error if C compiler raised error and don't created file.so
-raise RuntimeError, "Something was wrong with your C/C++ File =(\nPlease fix it first" if !File.exist?(CURRENT_DIR+"/"+file.sub(".h", ".so"))
+raise RuntimeError, "Something was wrong with your C/C++ File or in your Makefile =(\nPlease fix it first" if !File.exist?(CURRENT_DIR+"/"+file.sub(".h", ".so"))
 
 # delete no usefull files 
 [
