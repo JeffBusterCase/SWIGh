@@ -5,7 +5,7 @@ require 'swigh/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "swigh"
-  spec.version       = Swigh::VERSION
+  spec.version       = SWIGh::VERSION
   spec.authors       = ["Jefferson David Silva Bomfim"]
   spec.email         = ["jefferson_bomfim@outlook.com"]
 
